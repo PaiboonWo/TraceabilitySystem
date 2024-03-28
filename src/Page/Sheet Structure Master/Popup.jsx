@@ -27,7 +27,7 @@ import axios from "axios";
 
 function Popup({ isOpen, onClose, item, searchFunction }) {
 
-  const baseURL = "http://localhost:3080";
+  const baseURL = "http://10.17.66.119:3001";
 
   if (!isOpen) {
     return null;

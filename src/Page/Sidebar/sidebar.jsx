@@ -21,7 +21,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import SensorsOutlinedIcon from '@mui/icons-material/SensorsOutlined';
 function sidebar({ isOpen, onClose }) {
-  const baseURL = "http://localhost:3080";
+  const baseURL = "http://10.17.66.119:3001";
   const [subMenuOpen1, setSubMenuOpen1] = useState(false);
   const [subMenuOpen2, setSubMenuOpen2] = useState(false);
   const [subMenuOpen3, setSubMenuOpen3] = useState(false);
