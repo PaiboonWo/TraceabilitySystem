@@ -24,7 +24,7 @@ const usePopupFunctions = () => {
 };
 
 const getBaseURL = () => {
-  const baseURL = "http://localhost:3080";
+  const baseURL = "http://10.17.66.119:5353";
   return { baseURL };
 };
 
