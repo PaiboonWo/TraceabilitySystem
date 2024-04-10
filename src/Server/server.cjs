@@ -3,9 +3,10 @@ const oracledb = require("oracledb");
 const { Client } = require("pg");
 const app = express();
 const port = 3080;
-const serverLogin = require("../Login/Login.cjs")
+const serverLogin = require("../Login/Login.cjs");
 const serverMenu = require("../Page/Sidebar/menu.cjs");
-const sheetmaster = require("../Page/Sheet Structure Master/sheetmaster.cjs")
+const sheetmaster = require("../Page/Sheet Structure Master/sheetmaster.cjs");
+const serialmaster = require("../Page/Serial Structure Master/serialMaster.cjs")
 
 oracledb.initOracleClient({
   tnsAdmin: "D:\\app\\Administrator\\product\\11.2.0\\client_1\\network\\admin",
@@ -83,6 +84,13 @@ app.post("/insSheet_Master", sheetmaster.insertSheet_Master);
 app.post("/updateSheet_Master", sheetmaster.updateSheet_Master);
 app.post("/delSheet_Master", sheetmaster.delSheet_Master);
 app.post("/CheckSHTCode", sheetmaster.postSHTCode);
+
+//Serial Structure Master
+app.post("/Search/Serial", serialmaster.SerialCodeName);
+app.post("/insSerial_Master", serialmaster.insertSerial_Master);
+app.post("/updateSerial_Master", serialmaster.updateSerial_Master);
+app.post("/delSerial_Master", serialmaster.delSerial_Master);
+app.post("/CheckrunCode", serialmaster.runningCode);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

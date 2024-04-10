@@ -9,6 +9,7 @@ import axios from "axios";
 import "./sidebar.css"
 import { DownOutlined, UpOutlined, MenuOutlined } from "@ant-design/icons";
 import Circle from '@mui/icons-material/CircleOutlined';
+import {sidebarT} from "../function/function_sidebar"
 
 //Icon
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -21,6 +22,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import SensorsOutlinedIcon from '@mui/icons-material/SensorsOutlined';
 function sidebar({ isOpen, onClose }) {
+<<<<<<< HEAD
   const baseURL = "http://10.17.66.119:3001";
   const [subMenuOpen1, setSubMenuOpen1] = useState(false);
   const [subMenuOpen2, setSubMenuOpen2] = useState(false);
@@ -30,113 +32,14 @@ function sidebar({ isOpen, onClose }) {
   const [menu, setmenu] = useState([]);
   const [menuID, setmenuID] = useState([]);
   const [menuMain, setmenuMain] = useState([]);
+=======
+  
+  const {subMenuOpen1, subMenuOpen2, subMenuOpen3, subMenuOpen4, subMenuOpen5,
+    menu, menuID, menuMain, Icondrop1, Icondrop2, Icondrop3, Icondrop4,
+    toggleSubMenu1, toggleSubMenu2, toggleSubMenu3, toggleSubMenu4,
+    toggleSubMenu5, handleButtonClick, Logout } = sidebarT();
+>>>>>>> 42c3bbb824908ddb96406a1cea8764d1de322358
 
-  const [Icondrop1, setIcondrop1] = useState(false);
-  const [Icondrop2, setIcondrop2] = useState(false);
-  const [Icondrop3, setIcondrop3] = useState(false);
-  const [Icondrop4, setIcondrop4] = useState(false);
-  const Login_ID = localStorage.getItem("UserLogin");
-
-  const Menu = async () => {
-    axios.post(baseURL + "/MenuName", {
-      login_id: Login_ID,
-    }).then((res) => {
-      console.log(res.data.length, "hereeeeee")
-      // setmenuTest(res.data)
-      let datamenu = [];
-      let datamenuid = [];
-      let main = [];
-      for (let i = 0; i < res.data.length; i++) {
-
-        datamenu.push(res.data[i][1]);
-
-        datamenuid.push(res.data[i][6]);
-
-        main.push(res.data[i][0]);
-
-      }
-
-      setmenu(datamenu);
-      setmenuID(datamenuid);
-      setmenuMain(main);
-
-    })
-  };
-  useEffect(() => {
-    Menu()
-  }, []);
-
-  const navigate = useNavigate();
-  const Page1 = () => {
-    navigate("/Page1");
-  };
-  const toggleSubMenu1 = () => {
-    setIcondrop1(!Icondrop1);
-    setSubMenuOpen1(!subMenuOpen1);
-  };
-  const toggleSubMenu2 = () => {
-    setIcondrop2(!Icondrop2);
-    setSubMenuOpen2(!subMenuOpen2);
-  };
-  const toggleSubMenu3 = () => {
-    setIcondrop3(!Icondrop3);
-    setSubMenuOpen3(!subMenuOpen3);
-  };
-
-  const toggleSubMenu4 = () => {
-    setIcondrop4(!Icondrop4);
-    setSubMenuOpen4(!subMenuOpen4);
-  };
-
-  const toggleSubMenu5 = () => {
-    setSubMenuOpen5(!subMenuOpen5);
-  };
-
-  const handleButtonClick = () => {
-    // console.log(menuName);
-
-    if (Login_ID != "") {
-      console.error("hereM", Login_ID);
-      axios
-        .post(baseURL + "/MenuName", {
-
-          login_id: Login_ID,
-        })
-        .then((res) => {
-          const urll = res.data.map((item) => item[2]);
-          console.log("testt", urll);
-          gopath(urll);
-        })
-        .catch((error) => {
-          console.error("Error:", error.message);
-        });
-    }
-  };
-
-  const gopath = (path) => {
-    console.warn(path);
-    const go = "/" + path;
-    navigate(go);
-  };
-
-  const Logout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("Username");
-    localStorage.removeItem("Lastname");
-    navigate("/");
-  }
-  //date
-  const [currentDate, setCurrentDate] = useState("");
-  useEffect(() => {
-    axios
-      .get(baseURL + "/current-date")
-      .then((response) => {
-        setCurrentDate(response.data.date);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
   return (
     <Drawer anchor="left"
       open={isOpen} onClose={onClose}

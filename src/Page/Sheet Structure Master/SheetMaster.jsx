@@ -34,7 +34,7 @@ import {
   InfoCircleOutlined,
 } from "@ant-design/icons";
 import axios from 'axios';
-
+import { SheetMasterT } from "../function/function_SheetMaster";
 
 function SheetMaster() {
 
@@ -48,7 +48,7 @@ function SheetMaster() {
 
   const [TEXT_SHT_Code, setTEXT_SHT_Code] = useState("");
   
-  const baseURL = "http://10.17.66.119:3001";
+  const baseURL = "http://localhost:3080";
 
   const Search = async () => {
     console.log(code, name, "......")
