@@ -34,7 +34,7 @@ function App() {
     <StrictMode>
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/TraceabilitySystem" element={<Login />} />
         {authenticated ? (
           <>
         <Route path="/SheetMaster" element={<Sheet_Master />} />
