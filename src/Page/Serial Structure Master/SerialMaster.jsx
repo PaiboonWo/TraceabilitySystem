@@ -323,4 +323,3 @@ function SerialMaster() {
 };
 
 export default SerialMaster;
-// 

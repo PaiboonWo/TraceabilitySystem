@@ -166,7 +166,7 @@ function SheetMasterT() {
         XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
         XLSX.writeFile(wb, `Sheet_Structure_Master.xlsx`);
     };
-// 
+
     return{
         ShowData, checkHead, checkEmpty, checkData, code, name,
         TEXT_SHT_Code, Search, handleCode, handleName, OpenPopup,
